@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+docs: https://app.enverus.com/provisioning/directaccess
+summary:
+  types: [apiKey, http]
+  api_key_in: [header]
+  http_schemes: [bearer]
+  model: token-exchange
+  note: >-
+    A long-lived credential (v3 secret key, or v2 client_id/client_secret + API
+    key) is exchanged at the /tokens endpoint for a short-lived bearer access
+    token that is sent on the Authorization header for dataset requests. The
+    official client refreshes the token automatically on 401.
+schemes:
+- name: DeveloperAPIv3
+  version: v3
+  token_endpoint: https://api.enverus.com/v3/direct-access/tokens
+  credential:
+    type: apiKey
+    in: header
+    name: secret_key
+    provisioned_at: https://app.enverus.com/provisioning/directaccess
+  access_token:
+    type: http
+    scheme: bearer
+    header: Authorization
+    format: bearer <access_token>
+  sources: [docs]
+- name: DirectAccessV2
+  version: v2
+  token_endpoint: https://di-api.drillinginfo.com/v2/direct-access/tokens
+  credential:
+    type: oauth-client-credentials
+    fields: [client_id, client_secret, api_key]
+  access_token:
+    type: http
+    scheme: bearer
+    header: Authorization
+    format: bearer <access_token>
+  sources: [docs]
