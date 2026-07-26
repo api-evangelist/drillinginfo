@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.enverus.com/blog/marketview-by-enverus-trading-and-risk-solutions-is-now-soc-1-type-1-certified/
+standards:
+- id: oauth2-client-credentials
+  conforms: partial
+  evidence: >-
+    v2 uses client_id/client_secret exchanged for a bearer token; v3 uses a
+    secret key exchanged for a bearer token. Token-exchange model, not a full
+    OAuth 2.0 authorization server.
+- id: bearer-token-auth
+  conforms: true
+  evidence: Authorization header set to "bearer <access_token>" for dataset requests.
+- id: rfc5988-web-linking
+  conforms: true
+  evidence: Pagination advertised via Link header rel="next".
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope documented.
+- id: soc1-type1
+  conforms: true
+  scope: MarketView (Enverus Trading & Risk Solutions)
+  evidence: >-
+    Published announcement that MarketView by Enverus Trading & Risk Solutions
+    is SOC 1 Type 1 certified.
+- id: soc2
+  conforms: true
+  scope: RatedPower (an Enverus company)
+  evidence: RatedPower publishes SOC 2 Type I and Type II certifications.
+notes: >-
+  Compliance certifications are published at the product/subsidiary level
+  (MarketView SOC 1 Type 1; RatedPower SOC 2), not as a single consolidated
+  Enverus trust center. No enterprise-wide ISO 27001/PCI/HIPAA/FedRAMP claim
+  was found for the Developer API surface.

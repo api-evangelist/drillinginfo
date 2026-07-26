@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+versioning:
+  scheme: uri-path
+  current: v3
+  docs: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+  history:
+  - version: v1
+    status: deprecated
+    note: DirectAccessV1 — replaced by Direct Access V2.
+  - version: v2
+    status: legacy
+    base_url: https://di-api.drillinginfo.com/v2/direct-access/
+    docs: https://app.enverus.com/direct/#/api/explorer/v2/gettingStarted
+    note: Direct Access V2 (legacy) — superseded by the v3 Developer API.
+  - version: v3
+    status: current
+    base_url: https://api.enverus.com/v3/direct-access/
+    note: >-
+      Current Enverus Developer API. Rebranded from "Direct Access" to
+      "Developer API".
+deprecation:
+  policy_url: null
+  note: >-
+    Version transitions are announced through the API explorer documentation;
+    no formal RFC 8594 Sunset/Deprecation header policy is published. v1 has
+    been retired in favour of v2 and now v3.
+sla:
+  url: null
+status_page: null
+status_note: No public status page was found under status.enverus.com (unreachable).

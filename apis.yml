@@ -1,23 +1,134 @@
 aid: drillinginfo
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/drillinginfo.png
 name: Drillinginfo
-description: Drillinginfo is a company surfaced as a portfolio company of battery-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Drillinginfo (now Enverus) is an Austin, Texas energy-technology company that
+  provides AI-powered analytics and the most comprehensive dataset across oil and
+  gas, power, renewables, and financial markets. Its Direct Access / Developer API
+  (rebranded from Drillinginfo Direct Access to the Enverus Developer API) gives
+  subscribers programmatic, read-only access to well, production, completion,
+  permit, rig, wellbore, lease, and producing-entity datasets for import into data
+  warehouses and internal applications. The API is token-authenticated (secret key
+  in v3, client credentials plus API key in v2), returns JSON, and paginates via
+  RFC 5988 Link headers. An official Python client (enverus-developer-api) handles
+  authentication, token management, pagination, and retries. Enverus serves over
+  8,000 companies across the energy value chain.
 url: https://raw.githubusercontent.com/api-evangelist/drillinginfo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - battery-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Energy
+- Oil and Gas
+- Data
+- Analytics
+- Geospatial
+- Developer API
+- Well Data
+- Production Data
+- Energy Intelligence
+apis:
+- name: Enverus Developer API (v3)
+  description: >-
+    Current version of the Enverus Developer API (formerly Drillinginfo Direct
+    Access). Read-only JSON access to energy datasets — wells, well-origins,
+    wellbores, production, completions, permits, rigs, casings, legal-leases and
+    producing-entities — authenticated with a secret key that is exchanged for a
+    bearer token. Paginates via Link headers.
+  humanURL: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+  baseURL: https://api.enverus.com/v3/direct-access/
+  tags:
+  - Energy
+  - Oil and Gas
+  - Well Data
+  - Production Data
+  properties:
+  - type: Documentation
+    url: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+- name: Enverus Direct Access API (v2, legacy)
+  description: >-
+    Legacy Direct Access Version 2 of the Enverus / Drillinginfo API. Read-only
+    JSON dataset access authenticated with client_id, client_secret and an API key
+    exchanged for a bearer token. Superseded by the v3 Developer API.
+  humanURL: https://app.enverus.com/direct/#/api/explorer/v2/gettingStarted
+  baseURL: https://di-api.drillinginfo.com/v2/direct-access/
+  tags:
+  - Energy
+  - Oil and Gas
+  properties:
+  - type: Documentation
+    url: https://app.enverus.com/direct/#/api/explorer/v2/gettingStarted
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: LLMsTxt
+  url: llms/drillinginfo-llms.txt
+- type: MCPServer
+  url: mcp/drillinginfo-mcp.yml
+- type: Compliance
+  url: https://www.enverus.com/blog/marketview-by-enverus-trading-and-risk-solutions-is-now-soc-1-type-1-certified/
+- type: Conformance
+  url: conformance/drillinginfo-conformance.yml
+- type: Lifecycle
+  url: lifecycle/drillinginfo-lifecycle.yml
+- type: Conventions
+  url: conventions/drillinginfo-conventions.yml
+- type: Authentication
+  url: authentication/drillinginfo-authentication.yml
+- type: Packages
+  url: packages/drillinginfo-packages.yml
+- type: SDKs
+  url: packages/drillinginfo-packages.yml
+- type: DomainSecurity
+  url: security/drillinginfo-domain-security.yml
+- type: DeveloperPortal
+  url: https://developer.drillinginfo.com/
+- type: Documentation
+  url: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+- type: APIReference
+  url: https://app.enverus.com/direct/#/api/explorer/v3/gettingStarted
+- type: GettingStarted
+  url: https://learn.enverus.com/courses/direct-access-developer-api
+- type: SignUp
+  url: https://app.enverus.com/provisioning/directaccess
+- type: Login
+  url: https://rseg.auth0.com/login
+- type: Support
+  url: https://www.enverus.com/contact-us/
+- type: Blog
+  url: https://www.enverus.com/blog/
+- type: TermsOfService
+  url: https://www.enverus.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://www.enverus.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/enverus-ea
+- type: Website
+  url: https://www.enverus.com/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

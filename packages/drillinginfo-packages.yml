@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://pypi.org/project/enverus-developer-api/
+packages:
+- language: python
+  registry: pypi
+  name: enverus-developer-api
+  url: https://pypi.org/project/enverus-developer-api/
+  install: pip install enverus-developer-api
+  repository: https://github.com/enverus-ea/enverus-developer-api
+  official: true
+  description: >-
+    Official thin Python wrapper around the Enverus Developer API (formerly
+    Drillinginfo Direct Access). Handles authentication and token management,
+    pagination, and network-related error handling/retries; supports
+    DeveloperAPIv3 (secret key) and DirectAccessV2 (client credentials). Provides
+    query(), count(), docs(), ddl(), to_csv() and to_dataframe() helpers.
+  license: MIT
+  maintainer: Enverus Direct Access (directaccess@enverus.com)
+notes: >-
+  The enverus-ea GitHub organization and the directaccess@enverus.com PyPI
+  maintainer are first-party. Several community/third-party clients also exist
+  (wchatx/direct-access-py, mi4-corporation Enverus-Drillinginfo-Direct-Access);
+  they are NOT listed as official here.

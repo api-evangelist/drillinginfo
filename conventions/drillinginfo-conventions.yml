@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: searched
+source: https://direct-access-py.readthedocs.io/en/latest/usage.html
+summary: >-
+  Cross-cutting request/response semantics for the Enverus Developer API
+  (formerly Drillinginfo Direct Access), captured from the official docs and the
+  official Python client behaviour.
+authentication:
+  style: bearer-token
+  detail: Long-lived credential exchanged at /tokens for a short-lived bearer token.
+  ref: authentication/drillinginfo-authentication.yml
+http_methods:
+  read_only: true
+  supported: [GET, HEAD]
+  note: >-
+    The Developer API is a read-only data-access API. GET returns records; HEAD
+    (count) returns the total record count via response headers.
+pagination:
+  style: link-header
+  standard: RFC 5988
+  mechanism: >-
+    Responses include a Link header with rel="next"; the client follows next
+    until it is absent. Page size is controlled with the pagesize option.
+  params: [pagesize]
+  response_fields: [Link]
+idempotency:
+  supported: false
+  reason: Read-only GET API; no state-mutating operations to make idempotent.
+versioning:
+  scheme: uri-path
+  current: v3
+  versions: [v1, v2, v3]
+  ref: lifecycle/drillinginfo-lifecycle.yml
+filtering:
+  style: query-parameters
+  detail: >-
+    Datasets are filtered with field=value query parameters plus filter
+    functions (ge(), le(), gt(), lt(), btw(), in()) documented per dataset.
+  helpers: [ge, le, gt, lt, btw, in]
+formats:
+  response: [application/json]
+  export_helpers: [csv, pandas.DataFrame]
+error_handling:
+  ref: null
+  note: >-
+    The client raises on non-2xx; 400 at /tokens indicates bad credentials, 401
+    triggers a token refresh, 403 at /tokens indicates throttling (retry after
+    60s). No RFC 9457 problem+json envelope is documented.
+rate_limit_signaling:
+  detail: >-
+    Token requests are throttled with HTTP 403 at the /tokens endpoint; the
+    official client waits 60 seconds and retries.
