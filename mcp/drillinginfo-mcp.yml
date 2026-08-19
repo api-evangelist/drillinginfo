@@ -2,12 +2,10 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: https://direct-access-py.readthedocs.io/en/latest/api.html
-note: >-
-  No official hosted or remote MCP server was found for the Enverus Developer
-  API. This is a DERIVED candidate tool surface for a read-only data-access MCP
-  server, one query/count/docs tool family over the documented datasets. Dataset
-  names are taken from the official docs and Python client; each dataset supports
-  the same JSON query + Link-header pagination contract.
+note: No official hosted or remote MCP server was found for the Enverus Developer API. This is a DERIVED
+  candidate tool surface for a read-only data-access MCP server, one query/count/docs tool family over
+  the documented datasets. Dataset names are taken from the official docs and Python client; each dataset
+  supports the same JSON query + Link-header pagination contract.
 server:
   name: enverus-developer-api
   transport: http
@@ -25,9 +23,8 @@ datasets:
 - legal-leases
 tools:
 - name: query_dataset
-  description: >-
-    Query a Developer API dataset with field filters and filter functions
-    (ge/le/gt/lt/btw/in); returns JSON records, paginated via Link headers.
+  description: Query a Developer API dataset with field filters and filter functions (ge/le/gt/lt/btw/in);
+    returns JSON records, paginated via Link headers.
   source_operation: GET https://api.enverus.com/v3/direct-access/{dataset}
 - name: count_dataset
   description: Return the total record count for a dataset+filter (HEAD request).
@@ -35,3 +32,9 @@ tools:
 - name: describe_dataset
   description: Return the field-level documentation for a dataset (docs=true).
   source_operation: GET https://api.enverus.com/v3/direct-access/{dataset}?docs=true
+deployment:
+  mode: none
+  verified: derived
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census
